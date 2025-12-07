@@ -4,10 +4,10 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa
 
 # Parameters
 # Parameters
-N = 1_000_000           # hypothetical total addressable users
-P_CS = 1000             # upgrade price paid by CS customers every 24 months
-P_CC = 50               # monthly CC price → $600/year → $1200 over 24 months
-T = 24                  # time horizon in months
+N = 1_000_000
+P_CS = 1000
+P_CC = 50
+T = 24
 
 # Grids
 x_vals = np.linspace(0, N, 100)
@@ -19,7 +19,7 @@ R_CS = Y * P_CS
 R_CC = X * P_CC * T
 
 # Revenue difference surface (CC revenue minus old CS upgrade revenue)
-Z = (R_CC - R_CS) / 1e6  # in millions of dollars
+Z = (R_CC - R_CS) / 1e6
 
 # Convert to millions of users for nicer axes
 X_millions = X / 1e6
@@ -32,11 +32,10 @@ ax = fig.add_subplot(111, projection='3d')
 # Surface plot
 surf = ax.plot_surface(X_millions, Y_millions, Z, cmap='viridis', alpha=0.85, linewidth=0, antialiased=True)
 
-# Intersection line: where CC revenue = CS upgrade revenue → Z = 0
-# Solved: X * 50 * 24 = Y * 1000  →  Y = 1.2 * X
+#solve
 x_line = np.linspace(0, N, 200)
 y_line = 1.2 * x_line
-z_line = np.zeros_like(x_line)  # Z = 0 on the break-even plane
+z_line = np.zeros_like(x_line)
 
 ax.plot(x_line/1e6, y_line/1e6, z_line,
         color='red', linewidth=4, label='Break-even line (CC revenue = CS revenue)')
