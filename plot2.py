@@ -24,13 +24,13 @@ plt.plot(cc_subs / 1e6, cs_upgraders_needed / 1e6,
 
 # Fill the two regions for instant visual impact
 plt.fill_between(cc_subs / 1e6, cs_upgraders_needed / 1e6, 1.0, 
-                 color='#A8DADC', alpha=0.6, label='CC wins (higher revenue)')
+                 color='#457B9D', alpha=0.7, label='Old CS model wins (higher revenue)')
 plt.fill_between(cc_subs / 1e6, 0, cs_upgraders_needed / 1e6, 
-                 color='#457B9D', alpha=0.7, label='Old CS model wins')
+                 color='#A8DADC', alpha=0.6, label='CC wins (higher revenue)')
 
 # Labels & title
 plt.xlabel('Creative Cloud Subscribers (millions)', fontsize=13)
-plt.ylabel('CS Upgraders Needed to Match Revenue\n(millions per 24-month cycle)', fontsize=13)
+plt.ylabel('CS Upgraders \n(millions per 24-month cycle)', fontsize=13)
 plt.title('Adobe Revenue Trade-off: Creative Cloud vs. Perpetual License Upgrades\n', 
           fontsize=15, pad=20)
 
